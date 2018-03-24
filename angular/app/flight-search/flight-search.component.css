@@ -1,0 +1,50 @@
+.align {
+	text-align:center;
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+.tableWidth {
+	width: 50% !important;
+	text-align:center;
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+.hidecell {
+     display:none;
+}
+
+.space {
+	margin-right: 30px;
+}
+
+.divAlign {
+	float: left;
+	width: 45%;
+	border: 1px #19da1d;
+}
+
+.divAlignSearchFlight {
+	float: left;
+	width: 55%;
+	border: 1px #19da1d;
+}
+
+.message {
+    color: #fd0808;
+    font-size: 20px;
+    text-align:center;
+}
+
+.iconSize {
+	margin-top: 1%;
+    float: right;
+    width: 7%;	
+}
+
+.border {
+	height: 2px;
+    width: 100%;
+    background-color: #e40a0a;
+}

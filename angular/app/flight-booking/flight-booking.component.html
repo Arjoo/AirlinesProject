@@ -1,0 +1,122 @@
+<div class="navbar-form align" role="search">
+        <div class="form-group"><h2>Flight Booking</h2></div>
+              
+        <button *ngIf="userProfileIcon" type="button" class="btn btn-primary iconSize" (click)="userProfile()">
+            <span class="glyphicon glyphicon-user"></span>
+        </button>
+</div>
+<div class="border"></div>
+<br>
+
+<div class="divCenter">
+		<div class="container divAlign1">
+		    <div class="row">
+		        <div class="form_bg" >
+		        	<h2 class="text-center">Flight Details</h2>
+		        	<br>
+		        	<table class="table table-bordered table-striped">
+			            <tr> 
+			                <th> Flight Number </th>
+			                <th> Flight Name </th>
+			                <th> Departure </th>
+			                <th> Arrival </th>
+			                <th> Duration </th>
+			                <th> Price </th>
+			            </tr>
+			            <tr>
+		            		<td>{{flight.flightNumber}}</td>
+			                <td>{{flight.flightName}}</td>
+			                <td>{{flight.flightDeparture}}</td>
+			                <td>{{flight.flightArrival}}</td>
+			                <td>{{flight.flightDuration}}</td>
+			                <td>USD {{flight.flightPrice}}</td>
+			            </tr>
+			        </table>
+		        </div>
+		    </div>
+		</div>
+		<div class="container divAlign">
+		    <div class="row">
+		        <div class="form_bg">
+		        	<h2 class="text-center">Fare Summary</h2>
+		        	<br>
+		        	<table class="table table-bordered table-striped">
+		        		<tr><td><b>BASE FARE</b></td> <td>USD  {{flight.flightPrice -9 }}</td></tr>
+		        		<tr><td><b>AIRLINES FUEL CHARGE</b></td> <td>USD 3</td></tr>
+		        		<tr><td><b>Passenger Service Fee</b></td> <td>USD 1</td></tr>
+		        		<tr><td><b>User Development Fee</b></td> <td>USD 1</td></tr>
+		        		<tr><td><b>GST</b></td> <td>USD 2</td></tr>
+		        		<tr><td><b>Insurance</b></td> <td>USD 1</td></tr>
+		        		<tr><td><b>Charity</b></td> <td>USD 1</td></tr>
+		        		<tr class="grandTotal"><td><b>GRAND TOTAL</b></td> <td><b>USD {{flight.flightPrice}}</b></td></tr>
+		        	</table>
+
+		        	<div class="container">
+			        	<h3>Apply Discount</h3>
+			        	<h5>Have a discount/promo code to redeem ? (Optional)</h5>
+						<div class="controls form-inline">
+							<table>
+								<tr>
+									<td>
+										<form class="form-inline" >
+									      	<input type="text" class="coupons" id="coupon" placeholder="coupon" >
+									      	<button type="submit" class="btn btn-primary">
+									      		APPLY<i class="fa fa-angle-right"></i>
+									      	</button>
+									    </form>
+									</td>
+								</tr>
+							</table>
+		                </div>		        	
+			        </div>
+		        </div>
+		    </div>
+		</div>
+
+
+		<div class="container divAlign">
+		    <div class="row">
+		        <div class="form_bg">
+		            <form (submit) = bookTicket($event)>
+		                <h2 class="text-center">Booking Form</h2>
+		                <br/>
+		                <div class="form-group">
+		                    <select  class="form-control">
+	                 			<option *ngFor="let title of titles" value={{title.name}}>{{title.name}}</option>
+		            		</select>
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="firstname" placeholder="First name"
+									 value={{user.firstname}}>
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="middlename" placeholder="Middle name"
+									value={{user.middlename}}>
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="lastname" placeholder="Last name"
+									value={{user.lastname}}>
+		                </div>
+		                <div class="form-group">
+		                    <input type="email" class="form-control" id="email" placeholder="Email"
+									value={{user.email}}>
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="mobile" placeholder="Mobile number"
+									value={{user.mobile}}>
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="cardNumber" placeholder="Card Number">
+		                </div>
+		                <div class="form-group">
+		                    <input type="text" class="form-control" id="cvv" placeholder="CVV Number">
+		                </div>
+		                <br/>
+		                <div class="align-center">
+		                    <input type="submit" class="btn btn-primary" id="Book your ticket" value="Book your ticket" />
+		                </div>
+		            </form>
+		        </div>
+		    </div>
+		</div>
+</div>

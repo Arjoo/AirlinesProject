@@ -1,0 +1,57 @@
+<div class="align"><h2>Flight Booking</h2></div>
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="form_bg">
+            <form (submit) = createAccount()>
+                 <h2 class="text-center">Create Account</h2>
+                <br/>
+                <div class="message">{{errorMsg}} </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="firstname" [(ngModel)]="signup.firstname" 
+                        placeholder="First name">
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" name="middlename" [(ngModel)]="signup.middlename" 
+                        placeholder="Middle name" >
+                </div>
+                
+                <div class="form-group">
+                    <input type="text" class="form-control" name="lastname" [(ngModel)]="signup.lastname"
+                         placeholder="Last name">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" [(ngModel)]="signup.email" placeholder="Email">
+                </div>
+                <!--div class="message">{{passwordErrorMsg}} </div-->
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password" [(ngModel)]="signup.password"
+                         placeholder="Password">
+                </div>
+                
+                <div class="form-group">
+                    <input type="password" class="form-control" name="confirmpassword" [(ngModel)]="signup.confirmpassword"    
+                        placeholder="Confirm Password">
+                </div>
+                <!--div class="message">{{countryErrorMsg}} </div-->
+                <div class="form-group">
+                        <select [(ngModel)]="signup.country" name="signup.country" class="form-control">
+                            <option *ngFor="let country of countries" value={{country.name}}>{{country.name}}</option>
+                        </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" name="mobilenumber" [(ngModel)]="signup.mobilenumber"
+                        placeholder="Mobile number for OTP">
+                </div>
+                <br/>
+                <div class="align-center">
+                    <input type="submit" class="btn btn-primary" id="signup" value="Create Account"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

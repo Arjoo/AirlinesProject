@@ -1,0 +1,81 @@
+<div class="align"><h2>Flight Booking</h2></div>
+
+<div class="border"></div>
+<br>
+
+<div>
+    
+        <div class="col-xs-12 col-sm-6 col-md-6 divWidth">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="assets/img/user_1.jpg" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            {{user.firstname}}  {{user.middlename }}  {{user.lastname}}</h4>
+                        <small><cite title="San Francisco, USA">{{user.country}}<i class="glyphicon glyphicon-map-marker">
+                        </i></cite></small>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>{{user.email}}
+                            <br />
+                            <i class="glyphicon glyphicon-globe"></i><a href="http://www.arjoo.com">www.arjoo.com</a>
+                            <br />
+                            <i class="glyphicon glyphicon-gift"></i>June 02, 1988</p>
+                        <!-- Split button -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+</div>
+<div class="container divAlign">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+
+<div class="container divWidth2">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 panelWidth">
+
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h2 class="panel-title fnt">Booking History</h2>
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"></em></th>
+                        <th>PNR Number</th>
+                        <th>Booking Date</th>
+                        <th>Trip Date</th>
+                        <th>Trip</th>
+                        <th>Booking Status</th>
+                    </tr> 
+                  </thead>
+                  <tbody>
+                      <tr *ngFor="let bookedFlight of bookedFlightList.reverse()">
+                          <td align="center">
+                            <a class="btn btn-default"><em class="fa fa-pencil"></em></a>
+                            <a class="btn btn-danger"><em class="fa fa-trash"></em></a>
+                          </td>
+                          <td>{{bookedFlight.bookingId}}</td>
+                          <td>{{bookedFlight.bookingDate}}</td>
+                          <td>{{bookedFlight.tripDate}}</td>
+                          <td>{{bookedFlight.trip}}</td>
+                          <td><button class="btn btn-success">Confirmed</button></td>
+                      </tr>
+                  </tbody>
+                </table>
+            
+              </div>
+            </div>
+
+</div></div></div>
+
+</div>

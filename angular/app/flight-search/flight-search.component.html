@@ -1,0 +1,130 @@
+<!--div class="align">
+
+    
+    <span class="glyphicon glyphicon-user iconSize"> <h2>Flight Booking</h2></span>
+</div-->
+
+<div class="navbar-form align" role="search">
+        <div class="form-group"><h2>Flight Booking</h2></div>
+              
+        <button *ngIf="userProfileIcon" type="button" class="btn btn-primary iconSize" (click)="userProfile()">
+            <span class="glyphicon glyphicon-user"></span>
+        </button>
+</div>
+<div class="border"></div>
+<br>
+
+<div>
+        <div class=" container divAlign">
+            <table class="table table-bordered table-striped">
+                <tr><td>
+                    <table class="table table-bordered table-striped">
+                        <tr><td><b>Options</b></td>
+                            <td>
+                                <input type="radio" name="chooseOption" class="radio-inline" (click)="chooseOption(true)" checked> One Way
+                                <input type="radio" name="chooseOption" class="radio-inline" (click)="chooseOption(false)"> Round Trip
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><b>From : </b></td>
+                            <td>
+                                <select [(ngModel)]="person.from" class="form-control">
+                                    <option *ngFor="let fromLocation of fromLocations" value={{fromLocation}}>{{fromLocation}}</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>To : </b></td>
+                                <td>
+                                    <select [(ngModel)]="person.to" class="form-control">
+            	                 		<option *ngFor="let toLocation of toLocations" value={{toLocation}}>{{toLocation}}</option>
+            		            	</select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Class : </b></td>
+                                <td>
+                                    <select [(ngModel)]="person.passengerClass" class="form-control">
+                                        <option *ngFor="let category of categories" value={{category}}>{{category}}</option>
+                                    </select>    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Passengers : </b></td>
+                                <td>
+                                    <input type="text" value={{noOfPassenger}}>
+                                    <input type="button"   (click)="increment()" value="Increase" class="btn btn-primary">
+                                    <input type="button" (click)="decrement()" value="Decrease" class="btn btn-primary"
+                                        *ngIf="lessThanZero">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Depart : </b></td>
+                                <td>
+                                    <datepicker [(ngModel)]="person.depart" [showWeeks]="true" [minDate]="minDate"
+            	                          [dateDisabled]="disabledDate" [onlyCurrentMonth]=true>
+                                	</datepicker>
+                                </td>
+                            </tr>
+                            <tr *ngIf="!isOneWay">
+
+                                <td><b>Return : </b></td>
+                                <td>
+                                    <datepicker [(ngModel)]="person.rturn" [showWeeks]="true" [minDate]="minDate"
+            	                          [dateDisabled]="disabledDate" [onlyCurrentMonth]=true>
+                                	</datepicker>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>
+                                    <input type="button" value="Search" (click)="searchFlight()" class="btn btn-primary space"/>
+                                    <input type="button" value="Reset" (click)="reset()" class="btn btn-primary"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+    </table>
+    </div>
+
+    <!-- Search Flight-->
+    <div class="container divAlignSearchFlight">
+        <table class="table table-bordered table-striped">
+            <tr> 
+                <th>Number</th>
+                <th>Name</th>
+                <th>Dep Date</th>
+                <th>Arr Date</th>
+                <th>Dep Time</th>
+                <th>Arr Time</th>
+                <th>Duration</th>
+                <th>Price</th>
+                <th>Booking</th>
+            </tr>
+            <tr *ngIf='flightList == 0'><td colspan="9" class="message">No data found</td></tr>
+            <tr *ngFor="let flight of flightList">
+                <td>{{flight.flightNumber}}</td>
+                <td>{{flight.flightName}}</td>
+                <td>{{flight.flightDepartureDate}}</td>
+                <td>{{flight.flightArrivalDate}}</td>
+                <td>{{flight.flightDeparture}}</td>
+                <td>{{flight.flightArrival}}</td>
+                <td>{{flight.flightDuration}}</td>
+                <td>{{flight.flightPrice | currency }}</td>
+                <td>
+                    <input type="button" (click)="book(flight.flightId)" value="Book" class="btn btn-primary">
+                    <!--a [routerLink]="['../book']"><font color="white">Book</font></a-->
+                </td>
+
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+
+
+
+
+
